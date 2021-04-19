@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>snake</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <canvas id="snake-game-board" height="1080px" width="1080px"></canvas>
+  </div>
+
+  <div class="arrows">
+    <div class="arrow" (click)="handleMovement(_, 37)" id="left"></div>
+    <div class="arrow" (click)="handleMovement(_, 38)" id="up"></div>
+    <div class="arrow" (click)="handleMovement(_, 39)" id="right"></div>
+    <div class="arrow" (click)="handleMovement(_, 40)" id="down"></div>
+  </div>
+</ion-content>

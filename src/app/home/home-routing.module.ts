@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+  },
+  {
+    path: 'snake',
+    loadChildren: () => import('./snake/snake.module').then( m => m.SnakePageModule)
   }
 ];
 

@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+#snake-game-board {
+  display: grid;
+  grid-template: repeat(15, 1fr);
+  border: 1px solid black;
+
+  width: 100vmin;
+  height: 100vmin;
+
+  background-color: #eee;
+}
+
+#left { grid-area: left; margin-right: -90% }
+#up { grid-area: up; margin-top: 32px; }
+#right { grid-area: right; margin-left: -90%; }
+#down { grid-area: down; }
+
+.arrows {
+  margin: 0 auto;
+
+  display: grid;
+  height: 100px;
+  width: 100%;
+  margin: 0;
+  grid-template-areas:
+    '. up .'
+    'left down right'
+  ;
+  place-items: center;
+  gap: 12px;
+
+  .arrow {
+    border: 3px solid orangered;
+    background-color: white;
+    height: 50px;
+    width: 50px;
+  }
+
+
+
+}
+

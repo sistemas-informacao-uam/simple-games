@@ -10,7 +10,11 @@ const routes: Routes = [
   {
     path: 'snake',
     loadChildren: () => import('./snake/snake.module').then( m => m.SnakePageModule)
+  },  {
+    path: 'jogodavelha',
+    loadChildren: () => import('./jogodavelha/jogodavelha.module').then( m => m.JogodavelhaPageModule)
   }
+
 ];
 
 @NgModule({

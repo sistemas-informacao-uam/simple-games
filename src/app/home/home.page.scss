@@ -1,27 +1,27 @@
-#container {
-  text-align: center;
+ion-content {
+  ion-header {
+    display: flex;
+    height: 200px;
+    background-image: url('https://wallpaperaccess.com/full/1181260.jpg');
+    background-size: cover;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+    ion-title {
+      font-size: 40px;
+      background-color: rgba(1, 1, 1, 0.3);
+      text-align: center;
+    }
+  }
+  .select-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+    margin-top: 70px;
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+    ion-button {
+      margin-top: 20px;
+      width: 100%;
+    }
+  }
 }

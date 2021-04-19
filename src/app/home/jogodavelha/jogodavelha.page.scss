@@ -1,0 +1,33 @@
+ion-card{
+  ion-card-header {
+    text-align: center;
+
+    ion-card-subtitle {
+      font-size: 18px;
+    }
+    ion-card-title {
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+  }
+
+  ion-card-content {
+    text-align: center;
+  }
+}
+
+.game-content {
+  ion-col {
+    text-align: center;
+  }
+}
+
+ion-button {
+  height: 70px;
+  margin-top: 20px;
+  ion-icon {
+    font-size: 50px;
+  }
+}

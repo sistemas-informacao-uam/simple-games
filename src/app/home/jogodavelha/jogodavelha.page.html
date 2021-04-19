@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title slot="end">
       Jogo da Velha
     </ion-title>
   </ion-toolbar>
@@ -10,17 +13,20 @@
   <ion-card>
     <ion-card-header>
       <ion-card-subtitle>Jogador atual: {{player}}</ion-card-subtitle>
-      <ion-card-title *ngIf="winner">Vencedor: {{winner}}</ion-card-title>
+      <ion-card-title color="warning" *ngIf="winner">Vencedor: {{winner}}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <ion-row>
-        <ion-col size="4" *ngFor="let val of squares; let i = index">
-          <app-square *ngIf="!winner" [value]="val" (click)="makeMove(i)"></app-square>
-        </ion-col>
-      </ion-row>
+      <p>Mostre ser o melhor jogador!</p>
     </ion-card-content>
   </ion-card>
+  <div class="game-content">
+    <ion-row>
+      <ion-col size="4" *ngFor="let val of squares; let i = index">
+        <app-square *ngIf="!winner" [value]="val" (click)="makeMove(i)"></app-square>
+      </ion-col>
+    </ion-row>
+  </div>
   <ion-button color="dark" expand="block" (click)="newGame()">
     <ion-icon name="refresh-outline"></ion-icon>
   </ion-button>

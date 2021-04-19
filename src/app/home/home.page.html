@@ -1,20 +1,10 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
+<ion-content>
+  <ion-header>
+    <ion-title color="warning">Simple Games</ion-title>
   </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="select-game">
+    <ion-button class="btn-snake" color="success" routerLink="snake">Snake</ion-button>
+    <ion-button color="medium" routerLink="jogodavelha">Jogo da Velha</ion-button>
+    <ion-button color="danger">Resident Evil 8: Village</ion-button>
   </div>
 </ion-content>

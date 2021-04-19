@@ -10,14 +10,42 @@
 </ion-header>
 
 <ion-content>
-  <div class="container">
-    <canvas id="snake-game-board" height="1080px" width="1080px"></canvas>
-  </div>
+  <ion-item class="scoreboard">
+    <ion-label>Pontos</ion-label>
+    <ion-badge class="score">{{score}}</ion-badge>
+    <ion-badge class="score" color="warning" style="margin-left: 8px;">{{max_score}}</ion-badge>
+  </ion-item>
 
-  <div class="arrows">
-    <div class="arrow" (click)="handleMovement(_, 37)" id="left"></div>
-    <div class="arrow" (click)="handleMovement(_, 38)" id="up"></div>
-    <div class="arrow" (click)="handleMovement(_, 39)" id="right"></div>
-    <div class="arrow" (click)="handleMovement(_, 40)" id="down"></div>
-  </div>
+  <canvas id="snake-game-board" height="1080px" width="1080px"></canvas>
+
+  <ion-grid class="arrows">
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col class="arrow" (click)="handleMovement(_, 38)">
+        <span>
+          <ion-icon name="arrow-up-outline"></ion-icon>
+        </span>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="arrow" id="left" (click)="handleMovement(_, 37)">
+        <span>
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </span>
+      </ion-col>
+      <ion-col class="arrow" (click)="handleMovement(_, 40)">
+        <span>
+          <ion-icon name="arrow-down-outline"></ion-icon>
+        </span>
+      </ion-col>
+      <ion-col class="arrow ion-align-self-start" id="right" (click)="handleMovement(_, 39)">
+        <span>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 </ion-content>

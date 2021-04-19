@@ -26,6 +26,8 @@ export class SnakePage implements OnInit {
   }[] = []
   tail: number = 5
   isGameOver = false;
+  score = 0
+  max_score = 0
 
   constructor() { }
 
@@ -79,12 +81,20 @@ export class SnakePage implements OnInit {
       this.tail++;
       this.apple_x = Math.floor(Math.random() * this.board_squares);
       this.apple_y = Math.floor(Math.random() * this.board_squares);
+
+      if (this.max_score == this.score) {
+        this.max_score++
+      }
+      this.score++
     }
   }
 
   private gameOver() {
     this.speed_x = this.speed_y = 0;
     this.tail = 5;
+
+    if (this.max_score < this.score) this.max_score = this.score;
+    this.score = 0;
   }
 
   private handleMovement(event, arrow?) {

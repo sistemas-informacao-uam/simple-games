@@ -10,7 +10,7 @@ export class SnakePage implements OnInit {
   board: HTMLCanvasElement;
 
   ctx: CanvasRenderingContext2D
-  speed: number = 1
+  speed: number
   speed_x: number = 0
   speed_y: number = 0
   snake_x: number = 10
@@ -35,6 +35,7 @@ export class SnakePage implements OnInit {
     this.board = document.querySelector("#snake-game-board")
     this.ctx = this.board.getContext("2d");
     this.isGameOver = false;
+    this.speed = 60;
 
     document.addEventListener("keydown", (event) => this.handleMovement(event))
 
@@ -42,10 +43,10 @@ export class SnakePage implements OnInit {
   }
 
   main() {
-    setInterval(() => this.game(this.ctx), 45)
+    setInterval(() => this.game(this.ctx), this.speed)
   }
 
-  private game(ctx) {
+  game(ctx) {
     this.snake_x += this.speed_x;
     this.snake_y += this.speed_y;
 
@@ -78,7 +79,7 @@ export class SnakePage implements OnInit {
     this.catchedApple()
   }
 
-  private catchedApple() {
+  catchedApple() {
     if (this.apple_x == this.snake_x && this.apple_y == this.snake_y) {
       this.tail++;
       this.apple_x = Math.floor(Math.random() * this.board_squares);
@@ -90,7 +91,7 @@ export class SnakePage implements OnInit {
     }
   }
 
-  private gameOver() {
+  gameOver() {
     this.isGameOver = true;
     this.ctx.globalAlpha = 0.3;
     this.speed_x = this.speed_y = 0;
@@ -99,38 +100,39 @@ export class SnakePage implements OnInit {
     this.board.style.opacity = "0.5";
   }
 
-  public newGame() {
+  newGame() {
     this.score = 0;
     this.isGameOver = false;
     this.ctx.globalAlpha = 1;
     this.board.style.opacity = "1";
   }
 
-  private handleMovement(event, arrow?) {
+  handleMovement(event, arrow?) {
     if (this.isGameOver) return;
 
     const keyCode = event ? event.keyCode : arrow;
+    const squares_per_move = 1;
 
     switch (keyCode) {
       case 37: // left
         if (this.speed_x > 0) return;
-        this.speed_x = -this.speed;
+        this.speed_x = -squares_per_move;
         this.speed_y = 0;
         break;
       case 38: // up
         if (this.speed_y > 0) return;
         this.speed_x = 0;
-        this.speed_y = -this.speed;
+        this.speed_y = -squares_per_move;
         break;
       case 39: // right
         if (this.speed_x < 0) return;
-        this.speed_x = +this.speed;
+        this.speed_x = +squares_per_move;
         this.speed_y = 0;
         break;
       case 40: // down
         if (this.speed_y < 0) return;
         this.speed_x = 0;
-        this.speed_y = +this.speed;
+        this.speed_y = +squares_per_move;
         break;
     }
   }

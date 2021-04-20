@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'roleta',
     loadChildren: () => import('./roleta/roleta.module').then( m => m.RoletaPageModule)
+  },
+  {
+    path: 'playlist',
+    loadChildren: () => import('./playlist/playlist.module').then( m => m.PlaylistPageModule)
   }
 
 ];

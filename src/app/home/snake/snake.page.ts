@@ -9,7 +9,7 @@ export class SnakePage implements OnInit {
 
   board: HTMLCanvasElement;
 
-  ctx
+  ctx: CanvasRenderingContext2D
   speed: number = 1
   speed_x: number = 0
   speed_y: number = 0
@@ -25,7 +25,7 @@ export class SnakePage implements OnInit {
     y: number
   }[] = []
   tail: number = 5
-  isGameOver = false;
+  isGameOver
   score = 0
   max_score = 0
 
@@ -34,6 +34,8 @@ export class SnakePage implements OnInit {
   ngOnInit() {
     this.board = document.querySelector("#snake-game-board")
     this.ctx = this.board.getContext("2d");
+    this.isGameOver = false;
+
     document.addEventListener("keydown", (event) => this.handleMovement(event))
 
     this.main();
@@ -63,7 +65,7 @@ export class SnakePage implements OnInit {
     this.trail.forEach(({ x, y }) => {
       ctx.fillRect(x * this.square_size, y * this.square_size, this.square_size, this.square_size);
 
-      if (x == this.snake_x && y == this.snake_y) this.gameOver();
+      if (x == this.snake_x && y == this.snake_y && this.tail > 5) this.gameOver();
     });
 
     this.trail.push({
@@ -82,22 +84,31 @@ export class SnakePage implements OnInit {
       this.apple_x = Math.floor(Math.random() * this.board_squares);
       this.apple_y = Math.floor(Math.random() * this.board_squares);
 
-      if (this.max_score == this.score) {
-        this.max_score++
-      }
+      if (this.max_score == this.score) this.max_score++;
+
       this.score++
     }
   }
 
   private gameOver() {
+    this.isGameOver = true;
+    this.ctx.globalAlpha = 0.3;
     this.speed_x = this.speed_y = 0;
     this.tail = 5;
 
-    if (this.max_score < this.score) this.max_score = this.score;
+    this.board.style.opacity = "0.5";
+  }
+
+  public newGame() {
     this.score = 0;
+    this.isGameOver = false;
+    this.ctx.globalAlpha = 1;
+    this.board.style.opacity = "1";
   }
 
   private handleMovement(event, arrow?) {
+    if (this.isGameOver) return;
+
     const keyCode = event ? event.keyCode : arrow;
 
     switch (keyCode) {

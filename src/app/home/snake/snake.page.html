@@ -18,7 +18,11 @@
 
   <canvas id="snake-game-board" height="1080px" width="1080px"></canvas>
 
-  <ion-grid class="arrows">
+  <ion-button class="ion-margin" color="dark" expand="block" (click)="newGame()" *ngIf="isGameOver">
+    <ion-icon name="refresh-outline"></ion-icon>
+  </ion-button>
+
+  <ion-grid class="arrows ion-margin" *ngIf="!isGameOver">
     <ion-row>
       <ion-col></ion-col>
       <ion-col class="arrow" (click)="handleMovement(_, 38)">

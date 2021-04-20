@@ -65,44 +65,45 @@
     </ion-range>
   </ion-item>
 
-  <!-- Play Previous Button -->
-  <ion-button fill="clear" mode="ios" (click)="playPrev()">
-    <ion-icon name="play-skip-back-outline" style="font-size: 30px;"></ion-icon>
-  </ion-button>
 
-  <!-- Play Button -->
-  <ion-button fill="clear" mode="ios" *ngIf="!isPlaying" (click)="play()">
-    <ion-icon name="play" style="font-size: 40px;"></ion-icon>
-  </ion-button>
+ <!-- Play Previous Button -->
+ <ion-button fill="clear" mode="ios" (click)="playPrev()">
+  <ion-icon name="play-skip-back-outline" style="font-size: 30px;"></ion-icon>
+</ion-button>
 
-  <!-- Pause Button -->
-  <ion-button fill="clear" mode="ios" *ngIf="isPlaying" (click)="pause()">
-    <ion-icon name="pause" style="font-size: 40px;"></ion-icon>
-  </ion-button>
+<!-- Play Button -->
+<ion-button fill="clear" mode="ios" *ngIf="!isPlaying" (click)="play()">
+  <ion-icon name="play" style="font-size: 40px;"></ion-icon>
+</ion-button>
 
-  <!-- Play Next Button -->
-  <ion-button fill="clear" mode="ios" (click)="playNext()">
-    <ion-icon name="play-skip-forward-outline" style="font-size: 30px;"></ion-icon>
-  </ion-button>
+<!-- Pause Button -->
+<ion-button fill="clear" mode="ios" *ngIf="isPlaying" (click)="pause()">
+  <ion-icon name="pause" style="font-size: 40px;"></ion-icon>
+</ion-button>
 
-  <ion-list-header>
-    Proxima da lista:
-  </ion-list-header>
+<!-- Play Next Button -->
+<ion-button fill="clear" mode="ios" (click)="playNext()">
+  <ion-icon name="play-skip-forward-outline" style="font-size: 30px;"></ion-icon>
+</ion-button>
 
-  <!-- Up Next Song -->
-  <ion-item>
-    <ion-thumbnail slot="start">
-      <img src="https://i.pinimg.com/564x/7f/f6/72/7ff672b54c852a620483f7b4d6fca3cf.jpg" />
-    </ion-thumbnail>
-    <ion-label>
-      <h2>
-        {{upNextTitle}}
-      </h2>
-      <p>
-        {{upNextSubtitle}}
-      </p>
-    </ion-label>
-  </ion-item>
+<ion-list-header>
+  Proxima da lista:
+</ion-list-header>
+
+<!-- Up Next Song -->
+<ion-item>
+  <ion-thumbnail slot="start">
+    <img src="https://i.pinimg.com/564x/7f/f6/72/7ff672b54c852a620483f7b4d6fca3cf.jpg" />
+  </ion-thumbnail>
+  <ion-label>
+    <h2>
+      {{upNextTitle}}
+    </h2>
+    <p>
+      {{upNextSubtitle}}
+    </p>
+  </ion-label>
+</ion-item>
 </div>
 
 <!-- Minimizar o player-->

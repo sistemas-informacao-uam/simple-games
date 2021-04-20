@@ -28,7 +28,6 @@ export class PlaylistPage implements OnInit {
     path: "/assets/musics/thunder.mp3"
     }
   ];
-  
   //Current song details
   currTitle:string;
   currSubtitle:string;
@@ -67,7 +66,7 @@ export class PlaylistPage implements OnInit {
   //PLAY SONG
   playSong(title, subTitle, img,song){  
     if (this.currSong != null) {
-      this.currSong.pause();     
+      this.currSong.pause();     //If a song plays,stop that ////////////////
   }
 
  //open full player view
@@ -78,7 +77,7 @@ export class PlaylistPage implements OnInit {
  this.currImage = img;
 
  //Current song audio
- this.currSong = new Audio(song); 
+ this.currSong = new Audio(song); /////////////////////////
 
  this.currSong.play().then(() => {
   //Duracao total do som
@@ -162,10 +161,12 @@ playPrev() {
 // MINIMIZAR O PLAYER TODO
 minimize() {
   document.getElementById("fullPlayer").style.bottom = "-1000px";
+  document.getElementById("miniPlayer").style.bottom = "0px";
   }
 //MAXIMIZAR O PLAYER TODO
 maximize() {
   document.getElementById("fullPlayer").style.bottom = "0px";
+  document.getElementById("miniPlayer").style.bottom = "-100px";
   }
 
   pause() {

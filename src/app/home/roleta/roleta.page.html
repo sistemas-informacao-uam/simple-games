@@ -10,6 +10,14 @@
 </ion-header>
 
 <ion-content>
+  <div class="header-menu">
+    <div id="btnPlay" class="btnRoleta play" (click)="playOnClick()">
+      <ion-icon name="play"></ion-icon>
+    </div>
+    <div id="btnStop" class="btnRoleta stop" (click)="stopOnClick()">
+      <ion-icon name="pause"></ion-icon>
+    </div>
+  </div>
   <div class="folha">
     <div class="seta"></div>
     <div class="roleta" id="roleta">
@@ -30,9 +38,6 @@
       <div class="premio premio6" id="opt4">130 reais</div>
       <div class="premio premio7" id="opt3">140 reais</div>
       <div class="premio premio8" id="opt2">150 reais</div>
-
-      <div id="btnPlay" class="btnRoleta play" (click)="playOnClick()">►</div>
-      <div id="btnStop" class="btnRoleta stop" (click)="stopOnClick()">❚❚</div>
     </div>
   </div>
   <p id="msgGanhador"></p>

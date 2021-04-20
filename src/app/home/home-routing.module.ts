@@ -13,6 +13,10 @@ const routes: Routes = [
   },  {
     path: 'jogodavelha',
     loadChildren: () => import('./jogodavelha/jogodavelha.module').then( m => m.JogodavelhaPageModule)
+  },
+  {
+    path: 'roleta',
+    loadChildren: () => import('./roleta/roleta.module').then( m => m.RoletaPageModule)
   }
 
 ];

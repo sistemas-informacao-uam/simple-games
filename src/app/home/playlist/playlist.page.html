@@ -2,7 +2,7 @@
 
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
+      <ion-back-button (click)="pause()" defaultHref="home"></ion-back-button>
     </ion-buttons>
     <ion-title slot="end">
       Músicas
@@ -127,10 +127,7 @@
       <ion-icon name="pause" style="font-size: x-large;"></ion-icon>
     </ion-button>
 
-    <!-- Cancel Song Button -->
-    <ion-button (click)="cancel()" mode="ios" fill="clear">
-      <ion-icon name="close" style="font-size: x-large;"></ion-icon>
-    </ion-button>
+    
   </ion-item>
 
   <!-- Song Progress Bar -->

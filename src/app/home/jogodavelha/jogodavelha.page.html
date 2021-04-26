@@ -14,6 +14,7 @@
     <ion-card-header>
       <ion-card-subtitle>Jogador atual: {{player}}</ion-card-subtitle>
       <ion-card-title color="warning" *ngIf="winner">Vencedor: {{winner}}</ion-card-title>
+      <ion-card-title color="warning" *ngIf="empate">Empate</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>

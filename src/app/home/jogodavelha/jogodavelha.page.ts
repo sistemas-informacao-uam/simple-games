@@ -10,6 +10,8 @@ export class JogodavelhaPage implements OnInit {
   squares: string[];
   xIsNext: boolean;
   winner: string;
+  empateCounter = 0;
+  empate = false;
 
   constructor() { }
 
@@ -19,6 +21,8 @@ export class JogodavelhaPage implements OnInit {
 
   newGame() {
     this.squares = Array(9).fill(null);
+    this.empateCounter = 0;
+    this.empate = false;
     this.winner = null;
     this.xIsNext = true;
   }
@@ -27,9 +31,10 @@ export class JogodavelhaPage implements OnInit {
     return this.xIsNext ? 'X' : 'O';
   }
 
-  makeMove(idx: number) {
-    if (!this.squares[idx]) {
-      this.squares.splice(idx, 1, this.player);
+  makeMove(index: number) {
+    if (!this.squares[index]) {
+      this.empateCounter++;
+      this.squares.splice(index, 1, this.player);
       this.xIsNext = !this.xIsNext;
     }
 
@@ -59,7 +64,9 @@ export class JogodavelhaPage implements OnInit {
         return this.squares[a];
       }
     }
+    if(this.empateCounter >= 9) {
+      this.empate = true;
+    }
     return null;
   }
-
 }

@@ -10,7 +10,8 @@ const routes: Routes = [
   {
     path: 'snake',
     loadChildren: () => import('./snake/snake.module').then( m => m.SnakePageModule)
-  },  {
+  },
+  {
     path: 'jogodavelha',
     loadChildren: () => import('./jogodavelha/jogodavelha.module').then( m => m.JogodavelhaPageModule)
   },
@@ -19,8 +20,8 @@ const routes: Routes = [
     loadChildren: () => import('./roleta/roleta.module').then( m => m.RoletaPageModule)
   },
   {
-    path: 'playlist',
-    loadChildren: () => import('./playlist/playlist.module').then( m => m.PlaylistPageModule)
+    path: 'store',
+    loadChildren: () => import('./store/store.module').then( m => m.StorePageModule)
   }
 
 ];

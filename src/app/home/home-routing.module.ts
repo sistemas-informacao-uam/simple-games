@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'store',
     loadChildren: () => import('./store/store.module').then( m => m.StorePageModule)
+  },
+  {
+    path: 'jokenpo',
+    loadChildren: () => import('./jokenpo/jokenpo.module').then( m => m.JokenpoPageModule)
   }
 
 ];

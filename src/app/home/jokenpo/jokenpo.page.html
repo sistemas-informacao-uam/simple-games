@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title slot="end">
+      Jokenpo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding class="background">
+  <div class="score-board">
+    <div class="badge" id="user-label">Seus pontos : {{userSelected}}</div>
+    <div class="badge" id="comp-label">BOT: {{compSelected}}</div>
+    <span id="user-score">{{userScore}}</span>:<span id="comp-score">{{compScore}}</span>
+  </div>
+  
+  <div class="result">
+    <p *ngIf="status">{{userSelected}} {{action}} {{compSelected}}{{status}} </p>
+  </div>
+  
+  <div class="choices">
+    <div class="choice" id="rock">
+      <img src="../../../assets/icon/pedra.png" (click)='userPick("rock")'>
+    </div>
+    <div class="choice" id="paper">
+      <img src="../../../assets/icon/papel.png" (click)='userPick("paper")'>
+    </div>
+    <div class="choice" id="scissors">
+      <img src="../../../assets/icon/tesoura.jpg" (click)='userPick("scissors")'>
+    </div>
+  </div>
+  
+  <p id="action-message" *ngIf="!status">JO KEN PO!?</p>
+  <p id="action-message" *ngIf="status">Aguarde...</p>
+</ion-content>

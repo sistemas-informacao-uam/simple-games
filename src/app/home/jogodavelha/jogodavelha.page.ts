@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PointsService } from 'src/app/services/points.service';
 
 @Component({
   selector: 'app-jogodavelha',
@@ -7,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JogodavelhaPage implements OnInit {
 
+  globalPoints: number;
   squares: string[];
   xIsNext: boolean;
   winner: string;
   moveCounter = 0;
   empate = false;
 
-  constructor() { }
+  constructor(
+    private pointsService: PointsService
+  ) {
+    this.globalPoints = this.pointsService.globalPoints;
+   }
 
   ngOnInit() {
     this.newGame();
@@ -61,6 +67,8 @@ export class JogodavelhaPage implements OnInit {
         this.squares[a] === this.squares[b] &&
         this.squares[a] === this.squares[c]
       ) {
+        this.pointsService.sumPoints();
+        this.globalPoints = this.pointsService.globalPoints;
         return this.squares[a];
       }
     }

@@ -12,6 +12,7 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
+      <p>Pontos Globais: <span class="points">{{globalPoints}}</span></p>
       <ion-card-subtitle>Jogador atual: {{player}}</ion-card-subtitle>
       <ion-card-title color="warning" *ngIf="winner">Vencedor: {{winner}}</ion-card-title>
       <ion-card-title color="warning" *ngIf="empate">Empate</ion-card-title>

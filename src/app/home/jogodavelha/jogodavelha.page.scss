@@ -2,9 +2,16 @@ ion-card{
   ion-card-header {
     text-align: center;
 
+    .points {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: rgba(255, 21, 21, 0.7);
+    }
+
     ion-card-subtitle {
       font-size: 18px;
     }
+
     ion-card-title {
       font-size: 30px;
       font-weight: bold;

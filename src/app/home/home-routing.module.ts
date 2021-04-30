@@ -26,7 +26,11 @@ const routes: Routes = [
   {
     path: 'jokenpo',
     loadChildren: () => import('./jokenpo/jokenpo.module').then( m => m.JokenpoPageModule)
+  },  {
+    path: 'coinflip',
+    loadChildren: () => import('./coinflip/coinflip.module').then( m => m.CoinflipPageModule)
   }
+
 
 ];
 

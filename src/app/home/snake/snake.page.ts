@@ -29,6 +29,7 @@ export class SnakePage implements OnInit {
   isGameOver: boolean
   score = 0
   globalPoints: number;
+  pointsMultiplier: number;
   difficulty: string;
   interval;
 
@@ -41,7 +42,6 @@ export class SnakePage implements OnInit {
     this.ctx = this.board.getContext("2d");
     this.isGameOver = true;
     this.difficulty = "";
-    this.speed = 60;
 
     document.addEventListener("keydown", (event) => this.handleMovement(event))
 
@@ -51,9 +51,18 @@ export class SnakePage implements OnInit {
   setDifficulty(difficulty) {
     this.difficulty = difficulty;
 
-    if (this.difficulty == "noob") this.speed = 80;
-    if (this.difficulty == "casual") this.speed = 60;
-    if (this.difficulty == "pro") this.speed = 30;
+    if (this.difficulty == "noob") {
+      this.speed = 80;
+      this.pointsMultiplier = 1;
+    }
+    if (this.difficulty == "casual") {
+      this.speed = 60;
+      this.pointsMultiplier = 2;
+    }
+    if (this.difficulty == "pro") {
+      this.speed = 30;
+      this.pointsMultiplier = 3;
+    }
 
     clearInterval(this.interval);
 
@@ -106,28 +115,25 @@ export class SnakePage implements OnInit {
       this.apple_y = Math.floor(Math.random() * this.board_squares);
 
       this.score++
-
-      if (this.score == 5) {
-        this.pointsService.sumPoints(3);
-        this.speed = 0;
-        return;
-      }
-
-      if (this.score == 10) {
-        this.pointsService.sumPoints(9);
-        return;
-      }
-
-      if (this.score == 20) {
-        this.pointsService.sumPoints(36);
-        return;
-      }
-
-      if (this.score > 20) {
-        this.pointsService.sumPoints(3);
-        return;
-      }
+      this.addGlobalPoints();
     }
+  }
+
+  addGlobalPoints() {
+    let sumPoints = 0;
+
+    if (this.score == 5) {
+      sumPoints = 1
+    } else if (this.score == 10) {
+      sumPoints = 4;
+    } else if (this.score == 20) {
+      sumPoints = 12;
+    } else if (this.score > 20) {
+      sumPoints = 1;
+    }
+
+    sumPoints *= this.pointsMultiplier;
+    this.pointsService.sumPoints(sumPoints);
   }
 
   gameOver() {

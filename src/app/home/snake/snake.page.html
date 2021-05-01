@@ -21,7 +21,20 @@
 
   <canvas id="snake-game-board" height="1080px" width="1080px"></canvas>
 
-  <ion-button class="ion-margin" color="dark" expand="block" (click)="newGame()" *ngIf="isGameOver">
+  <ion-button class="ion-margin difficulty" color="success" expand="block" (click)="setDifficulty('noob')"
+    *ngIf="!difficulty">
+    NOOB
+  </ion-button>
+  <ion-button class="ion-margin difficulty" color="warning" expand="block" (click)="setDifficulty('casual')"
+    *ngIf="!difficulty">
+    CASUAL
+  </ion-button>
+  <ion-button class="ion-margin difficulty" color="danger" expand="block" (click)="setDifficulty('pro')"
+    *ngIf="!difficulty">
+    PRO
+  </ion-button>
+
+  <ion-button class="ion-margin" color="dark" expand="block" (click)="newGame()" *ngIf="difficulty && isGameOver">
     <ion-icon name="refresh-outline"></ion-icon>
   </ion-button>
 
@@ -53,6 +66,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
-
 </ion-content>

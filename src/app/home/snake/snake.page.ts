@@ -29,6 +29,8 @@ export class SnakePage implements OnInit {
   isGameOver: boolean
   score = 0
   globalPoints: number;
+  difficulty: string;
+  interval;
 
   constructor(private pointsService: PointsService) {
     this.globalPoints = this.pointsService.globalPoints;
@@ -37,7 +39,8 @@ export class SnakePage implements OnInit {
   ngOnInit() {
     this.board = document.querySelector("#snake-game-board")
     this.ctx = this.board.getContext("2d");
-    this.isGameOver = false;
+    this.isGameOver = true;
+    this.difficulty = "";
     this.speed = 60;
 
     document.addEventListener("keydown", (event) => this.handleMovement(event))
@@ -45,8 +48,21 @@ export class SnakePage implements OnInit {
     this.main();
   }
 
+  setDifficulty(difficulty) {
+    this.difficulty = difficulty;
+
+    if (this.difficulty == "noob") this.speed = 80;
+    if (this.difficulty == "casual") this.speed = 60;
+    if (this.difficulty == "pro") this.speed = 30;
+
+    clearInterval(this.interval);
+
+    this.isGameOver = false;
+    this.main();
+  }
+
   main() {
-    setInterval(() => this.game(this.ctx), this.speed)
+    this.interval = setInterval(() => this.game(this.ctx), this.speed)
   }
 
   game(ctx) {
@@ -93,6 +109,7 @@ export class SnakePage implements OnInit {
 
       if (this.score == 5) {
         this.pointsService.sumPoints(3);
+        this.speed = 0;
         return;
       }
 

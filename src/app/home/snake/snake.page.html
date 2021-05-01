@@ -13,7 +13,10 @@
   <ion-item class="scoreboard">
     <ion-label>Pontos</ion-label>
     <ion-badge class="score">{{score}}</ion-badge>
-    <ion-badge class="score" color="warning" style="margin-left: 8px;">{{max_score}}</ion-badge>
+    <div class="points-bar">
+      <ion-icon color="danger" name="diamond-outline"></ion-icon>
+      <span>{{globalPoints}}</span>
+    </div>
   </ion-item>
 
   <canvas id="snake-game-board" height="1080px" width="1080px"></canvas>

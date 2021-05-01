@@ -10,7 +10,7 @@ export class PointsService {
 
   constructor() { }
 
-  public sumPoints() {
-    this.globalPoints++;
+  public sumPoints(points: number = 1) {
+    this.globalPoints += points;
   }
 }

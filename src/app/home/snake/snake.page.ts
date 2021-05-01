@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PointsService } from 'src/app/services/points.service';
 
 @Component({
   selector: 'app-snake',
@@ -25,11 +26,13 @@ export class SnakePage implements OnInit {
     y: number
   }[] = []
   tail: number = 5
-  isGameOver
+  isGameOver: boolean
   score = 0
-  max_score = 0
+  globalPoints: number;
 
-  constructor() { }
+  constructor(private pointsService: PointsService) {
+    this.globalPoints = this.pointsService.globalPoints;
+  }
 
   ngOnInit() {
     this.board = document.querySelector("#snake-game-board")
@@ -76,7 +79,8 @@ export class SnakePage implements OnInit {
 
     while (this.trail.length > this.tail) this.trail.shift();
 
-    this.catchedApple()
+    this.catchedApple();
+    this.globalPoints = this.pointsService.globalPoints;
   }
 
   catchedApple() {
@@ -85,9 +89,27 @@ export class SnakePage implements OnInit {
       this.apple_x = Math.floor(Math.random() * this.board_squares);
       this.apple_y = Math.floor(Math.random() * this.board_squares);
 
-      if (this.max_score == this.score) this.max_score++;
-
       this.score++
+
+      if (this.score == 5) {
+        this.pointsService.sumPoints(3);
+        return;
+      }
+
+      if (this.score == 10) {
+        this.pointsService.sumPoints(9);
+        return;
+      }
+
+      if (this.score == 20) {
+        this.pointsService.sumPoints(36);
+        return;
+      }
+
+      if (this.score > 20) {
+        this.pointsService.sumPoints(3);
+        return;
+      }
     }
   }
 

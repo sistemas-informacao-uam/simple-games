@@ -10,6 +10,17 @@ export class CoinflipPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    document.addEventListener("DOMContentLoaded", function(event) {
+      const coin = document.getElementById("coin");
+      coin.addEventListener("click", function(e) {
+          let flipResult = Math.random() <= 0.5 ? 'heads' : 'tails';
+          coin.className = flipResult;
+          console.log(flipResult);
+      }, false);
+  });
+  }
+
+  
   }
 
 }

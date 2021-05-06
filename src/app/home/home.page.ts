@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +9,26 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  displayAnimation = 'none';
+  displayButtons = 'flex';
 
-  constructor() {}
+  options: AnimationOptions = {
+    path: '../assets/animation/loading-bar.json',
+  };
+
+  constructor(
+    private router: Router
+  ) {}
+
+  loadingGame(page: string){
+    this.displayAnimation='flex';
+    this.displayButtons='none';
+
+    setTimeout(() => {
+      this.displayAnimation='none';
+      this.displayButtons='flex';
+      this.router.navigate(['home', page]);
+    }, 3000);
+  }
 
 }

@@ -28,7 +28,7 @@ export class HomePage {
       this.displayAnimation='none';
       this.displayButtons='flex';
       this.router.navigate(['home', page]);
-    }, 3000);
+    }, 1000);
   }
 
 }

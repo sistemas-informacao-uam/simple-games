@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PointsService } from 'src/app/services/points.service';
 
 @Component({
   selector: 'app-jokenpo',
@@ -8,12 +9,25 @@ import { Component, OnInit } from '@angular/core';
 
 export class JokenpoPage implements OnInit {
 
-  constructor() { }
+  userScore: number;
+  compScore: number;
+    score = 0;
+    globalPoints: number;
 
-  ngOnInit() {
+  constructor(private pointsService: PointsService) {
+    this.globalPoints = this.pointsService.globalPoints;
   }
 
+  ngOnInit() {
+    this.userScore = 0;
+    this.compScore = 0;
+  }
+
+  
+
 }
+
+
 
 export class AppComponent {
   userScore = 0;
@@ -70,7 +84,7 @@ export class AppComponent {
     this.userSelected = user;
     this.compSelected = comp;
     this.action = 'and';
-    this.status = '. You draw!';
+    this.status = '. Empate!';
     this.clearField();
   }
 

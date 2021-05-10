@@ -9,6 +9,16 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content>
+  <ion-item class="scoreboard">
+    <ion-label>Pontos</ion-label>
+    <ion-badge class="score">{{score}}</ion-badge>
+    <div class="points-bar">
+      <ion-icon color="danger" name="diamond-outline"></ion-icon>
+      <span>{{globalPoints}}</span>
+    </div>
+  </ion-item>
+
 
 <ion-content padding class="background">
   <div class="score-board">
@@ -33,6 +43,6 @@
     </div>
   </div>
   
-  <p id="action-message" *ngIf="!status">JO KEN PO!?</p>
-  <p id="action-message" *ngIf="status">Aguarde...</p>
+  <p id="action-message" id="jogar" *ngIf="!status">BORA JOGAR!</p>
+  <p id="action-message" id="jogar" *ngIf="status">Aguarde...</p>
 </ion-content>

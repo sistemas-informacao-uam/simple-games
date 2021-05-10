@@ -9,26 +9,23 @@ const routes: Routes = [
   },
   {
     path: 'snake',
-    loadChildren: () => import('./snake/snake.module').then( m => m.SnakePageModule)
+    loadChildren: () => import('./snake/snake.module').then(m => m.SnakePageModule)
   },
   {
     path: 'jogodavelha',
-    loadChildren: () => import('./jogodavelha/jogodavelha.module').then( m => m.JogodavelhaPageModule)
-  },
-  {
-    path: 'roleta',
-    loadChildren: () => import('./roleta/roleta.module').then( m => m.RoletaPageModule)
+    loadChildren: () => import('./jogodavelha/jogodavelha.module').then(m => m.JogodavelhaPageModule)
   },
   {
     path: 'store',
-    loadChildren: () => import('./store/store.module').then( m => m.StorePageModule)
+    loadChildren: () => import('./store/store.module').then(m => m.StorePageModule)
   },
   {
     path: 'jokenpo',
-    loadChildren: () => import('./jokenpo/jokenpo.module').then( m => m.JokenpoPageModule)
-  },  {
+    loadChildren: () => import('./jokenpo/jokenpo.module').then(m => m.JokenpoPageModule)
+  },
+  {
     path: 'coinflip',
-    loadChildren: () => import('./coinflip/coinflip.module').then( m => m.CoinflipPageModule)
+    loadChildren: () => import('./coinflip/coinflip.module').then(m => m.CoinflipPageModule)
   }
 
 
@@ -38,4 +35,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomePageRoutingModule {}
+export class HomePageRoutingModule { }

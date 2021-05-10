@@ -9,10 +9,18 @@ import { PointsService } from 'src/app/services/points.service';
 
 export class JokenpoPage implements OnInit {
 
-  userScore: number;
-  compScore: number;
-    score = 0;
-    globalPoints: number;
+  userScore = 0;
+  compScore = 0;
+  userSelected: string;
+  compSelected: string;
+  action: string;
+  status: string;
+  globalPoints: number;
+  compWeapons = [
+    'rock',
+    'paper',
+    'scissors'
+  ];
 
   constructor(private pointsService: PointsService) {
     this.globalPoints = this.pointsService.globalPoints;
@@ -23,32 +31,13 @@ export class JokenpoPage implements OnInit {
     this.compScore = 0;
   }
 
-  
-
-}
-
-
-
-export class AppComponent {
-  userScore = 0;
-  compScore = 0;
-  userSelected: string;
-  compSelected: string;
-  action: string;
-  status: string;
-  compWeapons = [
-    'rock',
-    'paper',
-    'scissors'
-  ];
-
   userPick(userWeapon: string): void {
     this.userSelected = userWeapon;
-    console.log( this.userSelected);
-    setTimeout( () => {
+    // console.log(this.userSelected);
+    setTimeout(() => {
       const randomNum = Math.floor(Math.random() * 3);
       this.compSelected = this.compWeapons[randomNum];
-      console.log(this.compSelected);
+      // console.log(this.compSelected);
       this.checkResult();
     }, 1000);
   }
@@ -62,7 +51,7 @@ export class AppComponent {
   }
 
   win(user, comp) {
-    this.userScore ++;
+    this.userScore++;
     this.userSelected = user;
     this.compSelected = comp;
     this.action = 'beats';
@@ -72,7 +61,7 @@ export class AppComponent {
 
 
   lose(user, comp) {
-    this.compScore ++;
+    this.compScore++;
     this.userSelected = user;
     this.compSelected = comp;
     this.action = 'loses to';
@@ -106,6 +95,5 @@ export class AppComponent {
         this.draw(userChoice, compChoice);
         break;
     }
-
   }
 }

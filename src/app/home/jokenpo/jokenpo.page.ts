@@ -22,7 +22,9 @@ export class JokenpoPage implements OnInit {
     'tesoura'
   ];
 
-  constructor(private pointsService: PointsService) {
+  constructor(
+    private pointsService: PointsService
+  ) {
     this.globalPoints = this.pointsService.globalPoints;
   }
 
@@ -85,6 +87,8 @@ export class JokenpoPage implements OnInit {
       case 'papelpedra':
       case 'tesourapapel':
         this.win(userChoice, compChoice);
+        this.pointsService.sumPoints();
+        this.globalPoints = this.pointsService.globalPoints;
         break;
       case 'pedrapapel':
       case 'tesourapedra':

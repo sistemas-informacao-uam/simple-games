@@ -1,103 +1,109 @@
-.score-board{
-    margin: 20px auto;
-    border: 2px solid black;
-    color: black;
-    width: 200px;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 46px;
-    padding: 15px 20px;
-    position: relative;
-  }
-  
-  .badge{
-    background: purple;
-    font-size: 14px;
-    padding: 2px 10px;
-    color: white;
-  }
-  
-  #user-label{
-    position: absolute;
-    top: 5px;
-    left: -25px;
-  }
-  #comp-label{
-    position: absolute;
-    top: 5px;
-    right: -25px;
-  }
-  
-  
-  .result{
-    font-size: 40px;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-  }
-  
-  .choices{
-    text-align: center;
-    margin-top: 150px;
-  }
-  
-  .choice{
-    display: inline-block;
-    border: 5px solid purple;
-    border-radius: 50%;
-    margin: 0 20px; 
-    width: 80px;
-    height: 80px;
-    
-  }
-  
-  .choice:hover{
-    cursor: pointer;
-    background:white;
-  }
-  
-  #action-message{
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    font-size: 30px;
-    margin: 50px 0;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
+.scoreboard {
+  display: flex;
 
-  ion-content.background{
-    //--ion-background-color: purple;
-    --background: url('../../../assets/icon/fundo.jpg') no-repeat;
-    
-  }
-
-  img {
-    width: 50px;
-    
-  }
-
-
-  #scissors img{
-    width: 55%;
-  }
-
-  .score-board{
-    color:white;
-  }
-
-  .scoreboard {
-    font-size: 24px;
-  
-    .score {
-      font-size: inherit;
-      padding: 4px 24px;
+  .points-bar {
+    display: flex;
+    ion-icon {
+      margin-right: 7px;
     }
   }
+}
 
-  #jogar{
-    font-size: 50px;
-    text-align: center;
-    color: white;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
+.score-board {
+  margin: 20px auto;
+  border: 2px solid black;
+  color: black;
+  width: 200px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 46px;
+  padding: 15px 20px;
+  position: relative;
+}
+
+.badge {
+  background: purple;
+  font-size: 14px;
+  padding: 2px 10px;
+  color: white;
+}
+
+#user-label {
+  position: absolute;
+  top: 5px;
+  left: -25px;
+}
+#comp-label {
+  position: absolute;
+  top: 5px;
+  right: -25px;
+}
+
+.result {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.choices {
+  text-align: center;
+  margin-top: 150px;
+}
+
+.choice {
+  display: inline-block;
+  border: 5px solid purple;
+  border-radius: 50%;
+  margin: 0 20px;
+  width: 80px;
+  height: 80px;
+}
+
+.choice:hover {
+  cursor: pointer;
+  background: white;
+}
+
+#action-message {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 50px 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+ion-content.background {
+  //--ion-background-color: purple;
+  --background: url("../../../assets/icon/fundo.jpg") no-repeat;
+}
+
+img {
+  width: 50px;
+}
+
+#scissors img {
+  width: 55%;
+}
+
+.score-board {
+  color: white;
+}
+
+.scoreboard {
+  font-size: 24px;
+
+  .score {
+    font-size: inherit;
+    padding: 4px 24px;
   }
+}
+
+#jogar {
+  font-size: 50px;
+  text-align: center;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}

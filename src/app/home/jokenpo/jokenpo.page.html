@@ -22,8 +22,8 @@
 
   <ion-content padding class="background">
     <div class="score-board">
-      <div class="badge" id="user-label">Seus pontos : {{userSelected}}</div>
-      <div class="badge" id="comp-label">BOT: {{compSelected}}</div>
+      <div class="badge" id="user-label">Você: {{userSelected}}</div>
+      <div class="badge" id="comp-label">{{compSelected}} :BOT</div>
       <span id="user-score">{{userScore}}</span>:<span id="comp-score">{{compScore}}</span>
     </div>
 
@@ -32,17 +32,17 @@
     </div>
 
     <div class="choices">
-      <div class="choice" id="rock" (click)="userPick('rock')">
+      <div class="choice" id="rock" (click)="userPick('pedra')">
         <img src="../../../assets/icon/pedra.png">
       </div>
-      <div class="choice" id="paper" (click)="userPick('paper')">
+      <div class="choice" id="paper" (click)="userPick('papel')">
         <img src="../../../assets/icon/papel.png">
       </div>
-      <div class="choice" id="scissors" (click)="userPick('scissors')">
+      <div class="choice" id="scissors" (click)="userPick('tesoura')">
         <img src="../../../assets/icon/tesoura.jpg">
       </div>
     </div>
 
     <p id="action-message" id="jogar" *ngIf="!status">BORA JOGAR!</p>
-    <p id="action-message" id="jogar" *ngIf="status">Aguarde...</p>
+    <p id="action-message" id="jogar" *ngIf="status">AGUARDE...</p>
   </ion-content>

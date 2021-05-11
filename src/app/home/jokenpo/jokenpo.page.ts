@@ -17,9 +17,9 @@ export class JokenpoPage implements OnInit {
   status: string;
   globalPoints: number;
   compWeapons = [
-    'rock',
-    'paper',
-    'scissors'
+    'pedra',
+    'papel',
+    'tesoura'
   ];
 
   constructor(private pointsService: PointsService) {
@@ -39,7 +39,7 @@ export class JokenpoPage implements OnInit {
       this.compSelected = this.compWeapons[randomNum];
       // console.log(this.compSelected);
       this.checkResult();
-    }, 1000);
+    }, 1500);
   }
 
   clearField() {
@@ -47,15 +47,15 @@ export class JokenpoPage implements OnInit {
       this.status = '';
       this.userSelected = '';
       this.compSelected = '';
-    }, 2500);
+    }, 3000);
   }
 
   win(user, comp) {
     this.userScore++;
     this.userSelected = user;
     this.compSelected = comp;
-    this.action = 'beats';
-    this.status = '. Você ganhou!';
+    this.action = 'ganha de';
+    this.status = '. \n Você ganhou!';
     this.clearField();
   }
 
@@ -64,16 +64,16 @@ export class JokenpoPage implements OnInit {
     this.compScore++;
     this.userSelected = user;
     this.compSelected = comp;
-    this.action = 'loses to';
-    this.status = '. Você perdeu!';
+    this.action = 'perde de';
+    this.status = '. \n Você perdeu!';
     this.clearField();
   }
 
   draw(user, comp) {
     this.userSelected = user;
     this.compSelected = comp;
-    this.action = 'and';
-    this.status = '. Empate!';
+    this.action = 'e';
+    this.status = '. \n Empate!';
     this.clearField();
   }
 
@@ -81,14 +81,14 @@ export class JokenpoPage implements OnInit {
     const userChoice = this.userSelected;
     const compChoice = this.compSelected;
     switch (userChoice + compChoice) {
-      case 'rockscissors':
-      case 'paperrock':
-      case 'scissorspaper':
+      case 'pedratesoura':
+      case 'papelpedra':
+      case 'tesourapapel':
         this.win(userChoice, compChoice);
         break;
-      case 'rockpaper':
-      case 'scissorsrock':
-      case 'paperscissors':
+      case 'pedrapapel':
+      case 'tesourapedra':
+      case 'papeltesoura':
         this.lose(userChoice, compChoice);
         break;
       default:

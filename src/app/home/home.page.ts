@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
-import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
+
+import axios from 'axios';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   displayAnimation = 'none';
   displayButtons = 'flex';
 
@@ -17,8 +19,19 @@ export class HomePage {
   };
 
   constructor(
-    private router: Router
+    private router: Router,
   ) {}
+
+  ngOnInit() {
+    this.api();
+  }
+
+  async api() {
+    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+    const url = 'https://api-frases-php.herokuapp.com/';
+    const result = await axios.get(proxyurl + url);
+    console.log(result.data);
+  }
 
   loadingGame(page: string){
     this.displayAnimation='flex';

@@ -1,6 +1,5 @@
 <ion-header>
   <ion-title color="warning" size="large" class="ion-align-items-center">Simple Games</ion-title>
-  <p>Texto api aqui</p>
 </ion-header>
 <ion-content>
   <ng-lottie [ngStyle]="{'display': displayAnimation}" [options]='options'></ng-lottie>
@@ -11,4 +10,5 @@
     <ion-button color="light" (click)="loadingGame('coinflip')">Cara ou Coroa</ion-button>
     <ion-button color="warning" routerLink="store">Loja</ion-button>
   </div>
+  <p style="text-align: center; padding: 20px;">{{fraseMotivacional}}</p>
 </ion-content>

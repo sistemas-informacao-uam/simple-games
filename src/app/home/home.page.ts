@@ -13,6 +13,7 @@ import axios from 'axios';
 export class HomePage implements OnInit {
   displayAnimation = 'none';
   displayButtons = 'flex';
+  fraseMotivacional = "";
 
   options: AnimationOptions = {
     path: '../assets/animation/loading-bar.json',
@@ -20,26 +21,27 @@ export class HomePage implements OnInit {
 
   constructor(
     private router: Router,
-  ) {}
+  ) { }
 
   ngOnInit() {
-    this.api();
+    this.api().then((response) => {
+      this.fraseMotivacional = response;
+    })
   }
 
   async api() {
-    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
-    const url = 'https://api-frases-php.herokuapp.com/';
-    const result = await axios.get(proxyurl + url);
-    console.log(result.data);
+    const url = 'https://api-frases-node.herokuapp.com/';
+    const result = await axios.get(url);
+    return result.data.msg;
   }
 
-  loadingGame(page: string){
-    this.displayAnimation='flex';
-    this.displayButtons='none';
+  loadingGame(page: string) {
+    this.displayAnimation = 'flex';
+    this.displayButtons = 'none';
 
     setTimeout(() => {
-      this.displayAnimation='none';
-      this.displayButtons='flex';
+      this.displayAnimation = 'none';
+      this.displayButtons = 'flex';
       this.router.navigate(['home', page]);
     }, 1000);
   }

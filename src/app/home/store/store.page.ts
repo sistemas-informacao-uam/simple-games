@@ -26,13 +26,23 @@ export class StorePage implements OnInit {
   ngOnInit() {
   }
 
-  async showConfirm() {
+  async showConfirm(points: number) {
+    const balance = points - this.pointsService.globalPoints;
+
+    if (balance > 0) {
+      alert(`Você precisa de mais ${points - this.pointsService.globalPoints} para comprar esse item.`);
+      return;
+    }
+
     const { value } = await Dialog.confirm({
       title: 'Confirm',
-      message: `Confirmar a compra ?`,
+      message: `Confirmar a compra no valor de ${points} pontos?`,
     });
 
-    console.log('Confirmed:', value);
+    if (value) {
+      this.pointsService.subPoints(points);
+      alert(`Item comprado! Pontos restantes: ${this.pointsService.globalPoints}`);
+    }
   };
 
   async CompartilharConquistas() {

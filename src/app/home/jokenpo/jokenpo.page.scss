@@ -48,7 +48,7 @@
 
 .choices {
   text-align: center;
-  margin-top: 150px;
+  margin-top: 160px;
 }
 
 .choice {
@@ -57,12 +57,13 @@
   border-radius: 50%;
   margin: 0 20px;
   width: 80px;
-  height: 80px;
+  height: 75px;
 }
 
 .choice:hover {
   cursor: pointer;
   background: white;
+  transition: background-color 1s;
 }
 
 #action-message {
@@ -102,8 +103,9 @@ img {
 
 #jogar {
   font-size: 50px;
+  margin-top: 85px;
   text-align: center;
   color: white;
   font-family: "Courier New", Courier, monospace;
-  font-weight: bold;
+  font-weight: bold, italic;
 }

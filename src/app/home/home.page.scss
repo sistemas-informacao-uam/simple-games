@@ -29,3 +29,11 @@ ion-content {
     }
   }
 }
+
+ion-footer {
+  display: flex;
+  flex-direction: column;
+  height: 170px;
+  background-image:url('https://www.showmetech.com.br/wp-content/uploads//2017/11/gaming-wallpaper-25.jpg');
+  background-size: cover;
+}

@@ -18,6 +18,11 @@ export class PointsService {
     this.updateStorage(sum);
   }
 
+  public subPoints(points: number = 1) {
+    const sub = this.globalPoints -= points;
+    this.updateStorage(sub);
+  }
+
   private async loadFromStorage() {
     const points = await this.storage.get('globalPoints') as number;
     this.globalPoints = points;

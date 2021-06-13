@@ -94,6 +94,8 @@ export class JokenpoPage implements OnInit {
       case 'tesourapedra':
       case 'papeltesoura':
         this.lose(userChoice, compChoice);
+        this.pointsService.subPoints();
+        this.globalPoints = this.pointsService.globalPoints;
         break;
       default:
         this.draw(userChoice, compChoice);

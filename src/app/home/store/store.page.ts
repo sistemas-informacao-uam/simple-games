@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { PointsService } from 'src/app/services/points.service';
 import { Dialog } from '@capacitor/dialog';
-import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+//import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { Share } from '@capacitor/share';
 
 @Component({
   selector: 'app-store',
   templateUrl: './store.page.html',
   styleUrls: ['./store.page.scss'],
-  providers: [SocialSharing]
+  //providers: [SocialSharing, Share]
 })
 
 export class StorePage implements OnInit {
@@ -16,7 +17,8 @@ export class StorePage implements OnInit {
 
   constructor(
     private pointsService: PointsService,
-    private socialSharing: SocialSharing
+    //private socialSharing: SocialSharing,
+    //private share: Share
   ) {
     this.globalPoints = this.pointsService.globalPoints;
   }
@@ -34,6 +36,11 @@ export class StorePage implements OnInit {
   };
 
   async CompartilharConquistas() {
-    this.socialSharing.share('Olhem minhas conquistas! Pontuação total: ' + this.globalPoints)
+    await Share.share({
+      title: 'Olhem minhas conquistas!',
+      text: 'Minha pontuação total: ' + this.globalPoints,
+      dialogTitle: 'Compartilhe com amigos',
+    });
+    //this.socialSharing.share('Olhem minhas conquistas! Pontuação total: ' + this.globalPoints)
   };
 }

@@ -1,12 +1,12 @@
 <ion-header>
-  <ion-title color="warning" size="large" class="ion-align-items-center">Simple Games</ion-title>
+  <ion-title color="warning" size="large" class="ion-align-items-center">SIMPLE GAMES</ion-title>
 </ion-header>
 <ion-content>
   <ng-lottie [ngStyle]="{'display': displayAnimation}" [options]='options'></ng-lottie>
   <div class="select-game" [ngStyle]="{'display': displayButtons}">
     <ion-button class="btn-snake" color="success" (click)="loadingGame('snake')">Snake</ion-button>
     <ion-button color="medium" (click)="loadingGame('jogodavelha')">Jogo da Velha</ion-button>
-    <ion-button color="dark" (click)="loadingGame('jokenpo')">Pedra, Papel e Tesoura</ion-button>
+    <ion-button color="danger" (click)="loadingGame('jokenpo')">Pedra, Papel e Tesoura</ion-button>
     <ion-button color="light" (click)="loadingGame('coinflip')">Cara ou Coroa</ion-button>
     <ion-button color="warning" routerLink="store">Loja</ion-button>
   </div>
@@ -14,5 +14,5 @@
 </ion-content>
 
 <ion-footer>
-  
+
 </ion-footer>

@@ -35,13 +35,11 @@ export class JokenpoPage implements OnInit {
 
   userPick(userWeapon: string): void {
     this.userSelected = userWeapon;
-    // console.log(this.userSelected);
     setTimeout(() => {
       const randomNum = Math.floor(Math.random() * 3);
       this.compSelected = this.compWeapons[randomNum];
-      // console.log(this.compSelected);
       this.checkResult();
-    }, 1500);
+    }, 1000);
   }
 
   clearField() {
@@ -49,7 +47,7 @@ export class JokenpoPage implements OnInit {
       this.status = '';
       this.userSelected = '';
       this.compSelected = '';
-    }, 3000);
+    }, 1700);
   }
 
   win(user, comp) {

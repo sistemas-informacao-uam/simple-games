@@ -37,8 +37,8 @@ export class StorePage implements OnInit {
 
   async CompartilharConquistas() {
     await Share.share({
-      title: 'Olhem minhas conquistas!',
-      text: 'Minha pontuação total: ' + this.globalPoints,
+      title: 'Compartilhe conquistas',
+      text: 'Olhem minhas conquistas! Minha pontuação total: ' + this.globalPoints,
       dialogTitle: 'Compartilhe com amigos',
     });
     //this.socialSharing.share('Olhem minhas conquistas! Pontuação total: ' + this.globalPoints)

@@ -13,6 +13,10 @@ ion-header {
     font-size: 40px;
     background-color: rgba(1, 1, 1, 0.3);
     text-align: center;
+
+    @media (max-width: 351px) {
+      font-size: 30px;
+    }
   }
 }
 ion-content {
@@ -31,9 +35,22 @@ ion-content {
 }
 
 ion-footer {
-  display: flex;
-  flex-direction: column;
-  height: 170px;
-  background-image:url('https://www.showmetech.com.br/wp-content/uploads//2017/11/gaming-wallpaper-25.jpg');
-  background-size: cover;
+  height: 50px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: rgb(37, 153, 153);
+  
+    p {
+      margin-right: 5px;
+      color: #fff;
+    }
+
+    ion-icon {
+      color: #fff;
+    }
+  }
 }

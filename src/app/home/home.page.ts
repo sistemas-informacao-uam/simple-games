@@ -14,6 +14,7 @@ export class HomePage implements OnInit {
   displayAnimation = 'none';
   displayButtons = 'flex';
   fraseMotivacional = "";
+  repositorio = "https://github.com/sistemas-informacao-uam/simple-games";
 
   options: AnimationOptions = {
     path: '../assets/animation/loading-bar.json',
